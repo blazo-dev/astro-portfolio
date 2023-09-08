@@ -1,0 +1,35 @@
+---
+type Props = {
+	width: number
+}
+
+const { width } = Astro.props
+
+const animation = `width: ${
+	width - 7
+}ch; animation: typing 2s steps(${width}), blinking 0.5s step-end infinite alternate`
+---
+
+<span class='writter' style={animation}>
+	<slot />
+</span>
+<style lang='scss'>
+	.writter {
+		overflow: hidden;
+		display: block;
+		white-space: nowrap;
+		border-right: 4px solid var(--text-color);
+	}
+
+	@keyframes typing {
+		from {
+			width: 0;
+		}
+	}
+
+	@keyframes blinking {
+		50% {
+			border-color: transparent;
+		}
+	}
+</style>
