@@ -5,25 +5,35 @@ const routes = [
 	{ path: 'experience', text: 'Experience' },
 	{ path: 'contact', text: 'Contact' }
 ]
-
-const pathname = new URL(Astro.request.url).pathname
-const currentPath = pathname.slice(1)
 ---
 
 <ul class='nav-list'>
 	{
 		routes.map(({ path, text }) => (
 			<li class='nav-item'>
-				<a
-					class:list={['nav-link', { active: path === currentPath }]}
-					href={`/${path}`}
-				>
+				<a class='nav-link' href={`/${path}`}>
 					{text}
 				</a>
 			</li>
 		))
 	}
 </ul>
+<script>
+	const navLinks: NodeListOf<HTMLAnchorElement> =
+		document.querySelectorAll('.nav-link')
+	navLinks.forEach((link) => {
+		link.classList.remove('active')
+
+		const currentPath = window.location.pathname.slice(1)
+
+		const hrefArray = link.href.split('/')
+		const thisPath = hrefArray[hrefArray.length - 1]
+
+		if (currentPath === thisPath) {
+			link.classList.add('active')
+		}
+	})
+</script>
 <style lang='scss'>
 	.nav {
 		&-list {
