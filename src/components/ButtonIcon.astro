@@ -1,0 +1,48 @@
+---
+type Props = {
+	href?: string
+}
+
+const { href } = Astro.props
+---
+
+<a class='button' href={href}>
+	<slot name='icon-before' />
+	<span class='button-text'><slot /></span>
+	<slot name='icon-after' />
+</a>
+
+<style lang='scss'>
+	.button {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 0.3em;
+
+		padding: 0.6rem 1rem;
+
+		border: transparent;
+		border-radius: var(--border-radius);
+		background-color: var(--p-color);
+		color: var(--text-color);
+
+		text-decoration: none;
+
+		cursor: pointer;
+		transition: var(--color-transition);
+
+		&:hover {
+			background-color: var(--s-color);
+		}
+
+		&-text {
+			display: none;
+			font-weight: 700;
+			letter-spacing: 0.1em;
+
+			@media (min-width: 768px) {
+				display: block;
+			}
+		}
+	}
+</style>

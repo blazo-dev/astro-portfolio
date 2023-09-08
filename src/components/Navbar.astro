@@ -1,0 +1,42 @@
+---
+import NavList from './NavList.astro'
+import ButtonIcon from './ButtonIcon.astro'
+import MailIcon from './Icons/MailIcon.astro'
+---
+
+<nav class='nav wp-g'>
+	<div class='nav-container'>
+		<h2 class='nav-title'>BLAZO</h2>
+		<NavList />
+		<ButtonIcon href='/contact'>
+			<MailIcon slot='icon-before' />
+			 Let's Talk
+		</ButtonIcon>
+	</div>
+</nav>
+
+<style lang='scss'>
+	.nav {
+		padding-block: 1.2rem;
+
+		background-color: var(--color-primary);
+		color: var(--color-white);
+
+		&-container {
+			grid-column: 2 / 3;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+		}
+
+		&-title {
+			font-size: 1.5rem;
+			font-weight: 700;
+			margin: 0;
+
+			@media screen and (min-width: 768px) {
+				font-size: 2rem;
+			}
+		}
+	}
+</style>

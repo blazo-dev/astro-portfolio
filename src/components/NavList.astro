@@ -1,0 +1,71 @@
+---
+const routes = [
+	{ path: '', text: 'Home' },
+	{ path: 'about', text: 'About' },
+	{ path: 'experience', text: 'Experience' },
+	{ path: 'contact', text: 'Contact' }
+]
+
+const pathname = new URL(Astro.request.url).pathname
+const currentPath = pathname.slice(1)
+---
+
+<ul class='nav-list'>
+	{
+		routes.map(({ path, text }) => (
+			<li class='nav-item'>
+				<a
+					class:list={['nav-link', { active: path === currentPath }]}
+					href={`/${path}`}
+				>
+					{text}
+				</a>
+			</li>
+		))
+	}
+</ul>
+<style lang='scss'>
+	.nav {
+		&-list {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+
+			gap: 1em;
+
+			padding: 0;
+			margin: 0;
+
+			list-style: none;
+		}
+
+		&-item {
+		}
+
+		&-link {
+			--border-weight: 1px;
+
+			text-decoration: none;
+			color: var(--text-color);
+			font-weight: 600;
+			font-size: 1.2em;
+
+			border-bottom: var(--border-weight) solid transparent;
+
+			transition: var(--color-transition);
+
+			&:hover {
+				border-bottom: var(--border-weight) solid var(--text-color);
+			}
+
+			@media screen and (min-width: 768px) {
+				--border-weight: 3px;
+			}
+
+			&.active {
+				color: var(--p-color);
+				border-bottom: var(--border-weight) solid var(--p-color);
+			}
+		}
+	}
+</style>
