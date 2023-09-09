@@ -21,278 +21,234 @@ const { title } = Astro.props
 		<ViewTransitions />
 	</head>
 	<body>
+		<Navbar />
 		<slot />
-	</body><style lang='scss' is:global>
-		/* Fuente Pathway Extreme Semibold */
-		@font-face {
-			font-family: 'Pathway Extreme';
-			font-weight: 500;
-			font-style: normal;
-			src: url('/fonts/PathwayExtreme-Semibold.ttf') format('truetype');
-		}
-
-		/* Fuente Pathway Extreme Light */
-		@font-face {
-			font-family: 'Pathway Extreme';
-			font-weight: 300;
-			font-style: normal;
-			src: url('/fonts/PathwayExtreme-Light.ttf') format('truetype');
-		}
-
-		/* Fuente Pathway Extreme Regular */
-		@font-face {
-			font-family: 'Pathway Extreme';
-			font-weight: 400;
-			font-style: normal;
-			src: url('/fonts/PathwayExtreme-Regular.ttf') format('truetype');
-		}
-
-		/* Fuente Pathway Extreme Bold */
-		@font-face {
-			font-family: 'Pathway Extreme';
-			font-weight: 700;
-			font-style: normal;
-			src: url('/fonts/PathwayExtreme-Bold.ttf') format('truetype');
-		}
-
-		* {
-			box-sizing: border-box;
-		}
-
-		:root {
-			--p-color: hsl(0, 100%, 40%);
-			--s-color: hsl(0, 100%, 35%);
-			--box-shadow: 0 0 0 1px rgb(0 0 0 0.5);
-			--border-radius: 1.2em;
-			--color-transition: background-color 0.2s linear, color 0.2s linear,
-				border-color 0.2s linear;
-			--btn-text-color: hsl(49, 33%, 90%);
-
-			--text-color: hsl(0, 8%, 10%);
-			--bg-color: hsl(49, 33%, 90%);
-			--bg-color-element: hsl(50, 32%, 85%);
-
-			@media screen and (prefers-color-scheme: dark) {
-				--text-color: hsl(49, 33%, 90%);
-				--bg-color: hsl(0, 8%, 10%);
-				--bg-color-element: hsl(0, 8%, 8%);
-			}
-		}
-
-		.wp-g {
-			display: grid;
-			grid-template-columns: 1fr min(100% - 2rem, 70%) 1fr;
-
-			@media screen and (max-width: 1024px) {
-				grid-template-columns: 1fr min(100% - 2rem, 90%) 1fr;
-			}
-		}
-
-		html {
-			font-family: 'Pathway Extreme', system-ui, sans-serif;
-			background: var(--bg-color);
-			color: var(--text-color);
-			background-size: 224px;
-			line-height: 1.15;
-			-webkit-text-size-adjust: 100%;
-			font-size: 14px;
-
-			@media screen and (min-width: 500px) {
-				font-size: 16px;
-			}
-
-			@media screen and (min-width: 1000px) {
-				font-size: 18px;
-			}
-
-			@media screen and (min-width: 1500px) {
-				font-size: 20px;
-			}
-		}
-
-		code {
-			font-family:
-				Menlo,
-				Monaco,
-				Lucida Console,
-				Liberation Mono,
-				DejaVu Sans Mono,
-				Bitstream Vera Sans Mono,
-				Courier New,
-				monospace;
-		}
-
-		body {
-			margin: 0;
-		}
-
-		main {
-			display: block;
-		}
-
-		h1 {
-			font-size: 2em;
-			margin: 0.67em 0;
-		}
-
-		hr {
-			box-sizing: content-box;
-			height: 0;
-			overflow: visible;
-		}
-
-		pre {
-			font-family: monospace;
-			font-size: 1em;
-		}
-
-		abbr[title] {
-			border-bottom: none;
-			text-decoration: underline;
-			text-decoration: underline dotted;
-		}
-
-		b,
-		strong {
-			font-weight: bolder;
-		}
-
-		code,
-		kbd,
-		samp {
-			font-family: monospace;
-			font-size: 1em;
-		}
-
-		small {
-			font-size: 80%;
-		}
-
-		sub,
-		sup {
-			font-size: 75%;
-			line-height: 0;
-			position: relative;
-			vertical-align: baseline;
-		}
-
-		sub {
-			bottom: -0.25em;
-		}
-
-		sup {
-			top: -0.5em;
-		}
-
-		img {
-			border-style: none;
-		}
-
-		button,
-		input,
-		optgroup,
-		select,
-		textarea {
-			font-family: inherit;
-			font-size: 100%;
-			line-height: 1.15;
-			margin: 0;
-		}
-
-		button,
-		input {
-			overflow: visible;
-		}
-
-		button,
-		select {
-			text-transform: none;
-		}
-
-		button,
-		[type='button'],
-		[type='reset'],
-		[type='submit'] {
-			-webkit-appearance: button;
-			appearance: button;
-		}
-
-		button::-moz-focus-inner,
-		[type='button']::-moz-focus-inner,
-		[type='reset']::-moz-focus-inner,
-		[type='submit']::-moz-focus-inner {
-			border-style: none;
-			padding: 0;
-		}
-
-		button:-moz-focusring,
-		[type='button']:-moz-focusring,
-		[type='reset']:-moz-focusring,
-		[type='submit']:-moz-focusring {
-			outline: 1px dotted ButtonText;
-		}
-
-		fieldset {
-			padding: 0.35em 0.75em 0.625em;
-		}
-
-		legend {
-			box-sizing: border-box;
-			color: inherit;
-			display: table;
-			max-width: 100%;
-			padding: 0;
-			white-space: normal;
-		}
-
-		progress {
-			vertical-align: baseline;
-		}
-
-		textarea {
-			overflow: auto;
-		}
-
-		[type='checkbox'],
-		[type='radio'] {
-			box-sizing: border-box;
-			padding: 0;
-		}
-
-		[type='number']::-webkit-inner-spin-button,
-		[type='number']::-webkit-outer-spin-button {
-			height: auto;
-		}
-
-		[type='search'] {
-			-webkit-appearance: textfield;
-			appearance: textfield;
-			outline-offset: -2px;
-		}
-
-		[type='search']::-webkit-search-decoration {
-			-webkit-appearance: none;
-		}
-
-		::-webkit-file-upload-button {
-			-webkit-appearance: button;
-			font: inherit;
-		}
-
-		details {
-			display: block;
-		}
-
-		summary {
-			display: list-item;
-		}
-
-		template {
-			display: none;
-		}
-
-		[hidden] {
-			display: none;
-		}
-	</style>
+	</body>
 </html>
+<style lang='scss' is:global>
+	/* Fuente Pathway Extreme Semibold */
+	@font-face {
+		font-family: 'Pathway Extreme';
+		font-weight: 500;
+		font-style: normal;
+		src: url('/fonts/PathwayExtreme-Semibold.ttf') format('truetype');
+	}
+	/* Fuente Pathway Extreme Light */
+	@font-face {
+		font-family: 'Pathway Extreme';
+		font-weight: 300;
+		font-style: normal;
+		src: url('/fonts/PathwayExtreme-Light.ttf') format('truetype');
+	}
+	/* Fuente Pathway Extreme Regular */
+	@font-face {
+		font-family: 'Pathway Extreme';
+		font-weight: 400;
+		font-style: normal;
+		src: url('/fonts/PathwayExtreme-Regular.ttf') format('truetype');
+	}
+	/* Fuente Pathway Extreme Bold */
+	@font-face {
+		font-family: 'Pathway Extreme';
+		font-weight: 700;
+		font-style: normal;
+		src: url('/fonts/PathwayExtreme-Bold.ttf') format('truetype');
+	}
+	* {
+		box-sizing: border-box;
+	}
+	:root {
+		--p-color: hsl(0, 100%, 40%);
+		--s-color: hsl(0, 100%, 35%);
+		--box-shadow: 0 0 0 1px rgb(0 0 0 0.5);
+		--border-radius: 1.2em;
+		--color-transition: background-color 0.2s linear, color 0.2s linear,
+			border-color 0.2s linear;
+		--btn-text-color: hsl(49, 33%, 90%);
+		--text-color: hsl(0, 8%, 10%);
+		--bg-color: hsl(49, 33%, 90%);
+		--bg-color-element: hsl(50, 32%, 85%);
+		@media screen and (prefers-color-scheme: dark) {
+			--text-color: hsl(49, 33%, 90%);
+			--bg-color: hsl(0, 8%, 10%);
+			--bg-color-element: hsl(0, 8%, 8%);
+		}
+	}
+	.wp-g {
+		display: grid;
+		grid-template-columns: 1fr min(100% - 2rem, 70%) 1fr;
+		@media screen and (max-width: 1024px) {
+			grid-template-columns: 1fr min(100% - 2rem, 90%) 1fr;
+		}
+	}
+	html {
+		font-family: 'Pathway Extreme', system-ui, sans-serif;
+		background: var(--bg-color);
+		color: var(--text-color);
+		background-size: 224px;
+		line-height: 1.15;
+		-webkit-text-size-adjust: 100%;
+		font-size: 14px;
+		@media screen and (min-width: 500px) {
+			font-size: 16px;
+		}
+		@media screen and (min-width: 1000px) {
+			font-size: 18px;
+		}
+		@media screen and (min-width: 1500px) {
+			font-size: 20px;
+		}
+	}
+	code {
+		font-family:
+			Menlo,
+			Monaco,
+			Lucida Console,
+			Liberation Mono,
+			DejaVu Sans Mono,
+			Bitstream Vera Sans Mono,
+			Courier New,
+			monospace;
+	}
+	body {
+		margin: 0;
+	}
+	main {
+		display: block;
+	}
+	h1 {
+		font-size: 2em;
+		margin: 0.67em 0;
+	}
+	hr {
+		box-sizing: content-box;
+		height: 0;
+		overflow: visible;
+	}
+	pre {
+		font-family: monospace;
+		font-size: 1em;
+	}
+	abbr[title] {
+		border-bottom: none;
+		text-decoration: underline;
+		text-decoration: underline dotted;
+	}
+	b,
+	strong {
+		font-weight: bolder;
+	}
+	code,
+	kbd,
+	samp {
+		font-family: monospace;
+		font-size: 1em;
+	}
+	small {
+		font-size: 80%;
+	}
+	sub,
+	sup {
+		font-size: 75%;
+		line-height: 0;
+		position: relative;
+		vertical-align: baseline;
+	}
+	sub {
+		bottom: -0.25em;
+	}
+	sup {
+		top: -0.5em;
+	}
+	img {
+		border-style: none;
+	}
+	button,
+	input,
+	optgroup,
+	select,
+	textarea {
+		font-family: inherit;
+		font-size: 100%;
+		line-height: 1.15;
+		margin: 0;
+	}
+	button,
+	input {
+		overflow: visible;
+	}
+	button,
+	select {
+		text-transform: none;
+	}
+	button,
+	[type='button'],
+	[type='reset'],
+	[type='submit'] {
+		-webkit-appearance: button;
+		appearance: button;
+	}
+	button::-moz-focus-inner,
+	[type='button']::-moz-focus-inner,
+	[type='reset']::-moz-focus-inner,
+	[type='submit']::-moz-focus-inner {
+		border-style: none;
+		padding: 0;
+	}
+	button:-moz-focusring,
+	[type='button']:-moz-focusring,
+	[type='reset']:-moz-focusring,
+	[type='submit']:-moz-focusring {
+		outline: 1px dotted ButtonText;
+	}
+	fieldset {
+		padding: 0.35em 0.75em 0.625em;
+	}
+	legend {
+		box-sizing: border-box;
+		color: inherit;
+		display: table;
+		max-width: 100%;
+		padding: 0;
+		white-space: normal;
+	}
+	progress {
+		vertical-align: baseline;
+	}
+	textarea {
+		overflow: auto;
+	}
+	[type='checkbox'],
+	[type='radio'] {
+		box-sizing: border-box;
+		padding: 0;
+	}
+	[type='number']::-webkit-inner-spin-button,
+	[type='number']::-webkit-outer-spin-button {
+		height: auto;
+	}
+	[type='search'] {
+		-webkit-appearance: textfield;
+		appearance: textfield;
+		outline-offset: -2px;
+	}
+	[type='search']::-webkit-search-decoration {
+		-webkit-appearance: none;
+	}
+	::-webkit-file-upload-button {
+		-webkit-appearance: button;
+		font: inherit;
+	}
+	details {
+		display: block;
+	}
+	summary {
+		display: list-item;
+	}
+	template {
+		display: none;
+	}
+	[hidden] {
+		display: none;
+	}
+</style>
