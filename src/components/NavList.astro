@@ -2,43 +2,26 @@
 import { navData as routes } from '../data/navData'
 ---
 
-<ul class='nav-list'>
-	{
-		routes.map(({ path, text }) => (
-			<li class='nav-item'>
-				<a
-					class='nav-link'
-					href={`/${path}`}
-					aria-label={`Go to the page: ${text}`}
-					data-nav-link
-				>
-					{text}
-				</a>
-			</li>
-		))
-	}
-</ul>
+{
+	routes.map(({ path, text }) => (
+		<li class='nav-item'>
+			<a
+				class='nav-link'
+				href={`/${path}`}
+				aria-label={`Go to the page: ${text}`}
+				data-nav-link
+			>
+				{text}
+			</a>
+		</li>
+	))
+}
+
 <script>
 	import '../lib/nav'
 </script>
 <style lang='scss'>
 	.nav {
-		&-list {
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-
-			gap: 1em;
-
-			padding: 0;
-			margin: 0;
-
-			list-style: none;
-		}
-
-		&-item {
-		}
-
 		&-link {
 			--border-weight: 1px;
 

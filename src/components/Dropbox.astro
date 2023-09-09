@@ -1,0 +1,87 @@
+---
+import MenuIcon from './Icons/MenuIcon.astro'
+---
+
+<div class='dropbox'>
+	<label class='dropbox-menu'>
+		<div class='dropbox-icon'>
+			<MenuIcon slot='icon-before' />
+		</div>
+
+		<input type='checkbox' name='toggle-menu' class='dropbox-checkbox' />
+		<ul class='dropbox-list'>
+			<slot />
+		</ul>
+	</label>
+</div>
+<style lang='scss'>
+	.dropbox {
+		display: grid;
+		place-content: center;
+
+		@media screen and (min-width: 768px) {
+			display: none;
+		}
+
+		&-menu {
+			display: grid;
+			place-content: center;
+
+			cursor: pointer;
+		}
+
+		&-checkbox {
+			display: none;
+
+			&:checked + .dropbox-list {
+				transform: scale(1);
+
+				transition: transform 0.4s ease;
+			}
+		}
+
+		&-icon {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			gap: 0.3em;
+
+			padding: 0.6rem 1rem;
+
+			border: transparent;
+			border-radius: var(--border-radius);
+			background-color: var(--p-color);
+			color: var(--btn-text-color);
+
+			text-decoration: none;
+
+			cursor: pointer;
+			transition: var(--color-transition);
+		}
+
+		&-list {
+			position: absolute;
+			top: 100%;
+			right: 1rem;
+
+			display: grid;
+			place-items: center;
+			gap: 0.5em;
+
+			width: min(100% - 2rem, 500px);
+			min-height: 100px;
+
+			margin: 0;
+			padding: 0.5em;
+
+			background: var(--bg-color-element);
+			border-radius: 0.3em;
+			box-shadow: var(--box-shadow);
+			transform: scale(0);
+			transform-origin: top center;
+			list-style: none;
+
+			transition: transform 0.4s ease;
+		}
+	}
+</style>

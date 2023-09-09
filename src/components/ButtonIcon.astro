@@ -1,16 +1,31 @@
 ---
 type Props = {
 	href?: string
+	isButton?: boolean
 }
 
-const { href } = Astro.props
+const { href, isButton } = Astro.props
 ---
 
-<a class='button' href={href}>
-	<slot name='icon-before' />
-	<span class='button-text'><slot /></span>
-	<slot name='icon-after' />
-</a>
+{
+	isButton ? (
+		<button class='button'>
+			<slot name='icon-before' />
+			<span class='button-text'>
+				<slot />
+			</span>
+			<slot name='icon-after' />
+		</button>
+	) : (
+		<a class='button' href={href}>
+			<slot name='icon-before' />
+			<span class='button-text'>
+				<slot />
+			</span>
+			<slot name='icon-after' />
+		</a>
+	)
+}
 
 <style lang='scss'>
 	.button {

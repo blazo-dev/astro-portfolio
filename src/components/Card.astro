@@ -1,0 +1,36 @@
+<div class='card flex'>
+	<slot name='header' />
+	<div class='card-content flex'>
+		<slot name='content' />
+		<slot name='content-right' />
+	</div>
+	<slot name='footer' />
+</div>
+
+<style lang='scss'>
+	.flex {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		gap: 1rem;
+	}
+
+	.card {
+		width: 100%;
+		padding: 1.5rem;
+
+		border-radius: var(--border-radius);
+		background-color: var(--bg-color-element);
+		box-shadow: var(--box-shadow);
+
+		&-content {
+            width: 100%;
+			align-content: flex-start;
+			@media screen and (min-width: 768px) {
+				flex-direction: row;
+				justify-content: center;
+			}
+		}
+	}
+</style>

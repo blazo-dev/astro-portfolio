@@ -18,7 +18,12 @@ const animation = `width: ${
 		overflow: hidden;
 		display: block;
 		white-space: nowrap;
-		border-right: 4px solid var(--text-color);
+		border-right: 4px solid var(--p-color);
+		font-size: 1rem;
+
+		@media screen and (min-width: 768px) {
+			font-size: 1.2rem;
+		}
 	}
 
 	@keyframes typing {

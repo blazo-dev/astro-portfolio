@@ -1,5 +1,6 @@
 ---
 import ButtonIcon from './ButtonIcon.astro'
+import Dropbox from './Dropbox.astro'
 import MailIcon from './Icons/MailIcon.astro'
 import NavList from './NavList.astro'
 ---
@@ -7,15 +8,23 @@ import NavList from './NavList.astro'
 <nav class='nav wp-g' aria-label='Primary'>
 	<div class='nav-container'>
 		<h2 class='nav-title'>BLAZO</h2>
-		<NavList />
-		<ButtonIcon href='/contact'>
-			<MailIcon slot='icon-before' />
-			 Let's Talk
-		</ButtonIcon>
+		<div class='nav-list'><NavList /></div>
+		<div class='nav-buttons'>
+			<ButtonIcon href='/contact'>
+				<MailIcon slot='icon-before' />
+				 Let's Talk
+			</ButtonIcon>
+			<div class='nav-menu'>
+				<Dropbox>
+					<NavList />
+				</Dropbox>
+			</div>
+		</div>
 	</div>
 </nav>
 <style lang='scss'>
 	.nav {
+		position: relative;
 		padding-block: 1.2rem;
 
 		background-color: var(--color-primary);
@@ -36,6 +45,37 @@ import NavList from './NavList.astro'
 			@media screen and (min-width: 768px) {
 				font-size: 2rem;
 			}
+		}
+
+		&-list {
+			display: none;
+
+			justify-content: space-between;
+			align-items: center;
+
+			gap: 1.5rem;
+
+			padding: 0;
+			margin: 0;
+
+			list-style: none;
+			@media screen and (min-width: 768px) {
+				display: flex;
+			}
+		}
+
+		&-menu {
+			display: block;
+
+			@media screen and (min-width: 768px) {
+				display: none;
+			}
+		}
+
+		&-buttons {
+			display: flex;
+			align-items: center;
+			gap: 1.2rem;
 		}
 	}
 </style>
