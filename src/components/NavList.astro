@@ -1,8 +1,5 @@
 ---
 import { navData as routes } from '../data/navData'
-
-const pathname = new URL(Astro.request.url).pathname
-const currentPath = pathname.slice(1)
 ---
 
 <ul class='nav-list'>
@@ -10,7 +7,7 @@ const currentPath = pathname.slice(1)
 		routes.map(({ path, text }) => (
 			<li class='nav-item'>
 				<a
-					class:list={['nav-link', { active: path === currentPath }]}
+					class='nav-link'
 					href={`/${path}`}
 					aria-label={`Go to the page: ${text}`}
 					data-nav-link
@@ -21,6 +18,9 @@ const currentPath = pathname.slice(1)
 		))
 	}
 </ul>
+<script>
+	import '../lib/nav'
+</script>
 <style lang='scss'>
 	.nav {
 		&-list {
