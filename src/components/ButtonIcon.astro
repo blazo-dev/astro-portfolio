@@ -1,10 +1,11 @@
 ---
 type Props = {
 	href?: string
+	target?: string
 	isButton?: boolean
 }
 
-const { href, isButton } = Astro.props
+const { href, isButton, target } = Astro.props
 ---
 
 {
@@ -17,7 +18,7 @@ const { href, isButton } = Astro.props
 			<slot name='icon-after' />
 		</button>
 	) : (
-		<a class='button' href={href}>
+		<a class='button' href={href} target={target}>
 			<slot name='icon-before' />
 			<span class='button-text'>
 				<slot />
@@ -34,7 +35,7 @@ const { href, isButton } = Astro.props
 		justify-content: space-between;
 		gap: 0.3em;
 
-		padding: 0.6rem 1rem;
+		padding: 0.5rem 0.8rem;
 
 		border: transparent;
 		border-radius: var(--border-radius);

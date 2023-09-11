@@ -1,18 +1,30 @@
 ---
 import ButtonIcon from './ButtonIcon.astro'
 import Dropbox from './Dropbox.astro'
+import GithubIcon from './Icons/GithubIcon.astro'
+import LinkedinIcon from './Icons/LinkedinIcon.astro'
 import MailIcon from './Icons/MailIcon.astro'
 import NavList from './NavList.astro'
 ---
 
 <nav class='nav wp-g' aria-label='Primary'>
 	<div class='nav-container'>
-		<h2 class='nav-title'>BLAZO</h2>
+		<div class='nav-buttons'>
+			<ButtonIcon href='https://github.com/blazo-dev' target='_blank'>
+				<GithubIcon slot='icon-before' />
+			</ButtonIcon>
+			<ButtonIcon
+				href='https://www.linkedin.com/in/bryanlazodev/'
+				target='_blank'
+			>
+				<LinkedinIcon slot='icon-before' />
+			</ButtonIcon>
+		</div>
 		<div class='nav-list'><NavList /></div>
 		<div class='nav-buttons'>
-			<ButtonIcon href='/contact'>
+			<ButtonIcon href='#contact'>
 				<MailIcon slot='icon-before' />
-				 Let's Talk
+				 Get in touch
 			</ButtonIcon>
 			<div class='nav-menu'>
 				<Dropbox>
@@ -59,7 +71,7 @@ import NavList from './NavList.astro'
 			margin: 0;
 
 			list-style: none;
-			@media screen and (min-width: 768px) {
+			@media screen and (min-width: 968px) {
 				display: flex;
 			}
 		}
@@ -67,7 +79,7 @@ import NavList from './NavList.astro'
 		&-menu {
 			display: block;
 
-			@media screen and (min-width: 768px) {
+			@media screen and (min-width: 968px) {
 				display: none;
 			}
 		}

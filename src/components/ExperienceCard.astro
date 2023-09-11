@@ -1,0 +1,102 @@
+---
+import Card from './Card.astro'
+---
+
+<Card>
+	<header class='experience-card-header' slot='header'>
+		<h3 class='experience-card-title mx-0'>Frontend Developer</h3>
+		<span class='experience-card-company'>Applaudo Studios</span>
+		<div class='experience-card-skills'>
+			<span class='experience-card-skill'>React</span>
+			<span class='experience-card-skill'>React</span>
+			<span class='experience-card-skill'>React</span>
+			<span class='experience-card-skill'>React</span>
+			<span class='experience-card-skill'>React</span>
+			<span class='experience-card-skill'>React</span>
+			<span class='experience-card-skill'>React</span>
+			<span class='experience-card-skill'>React</span>
+			<span class='experience-card-skill'>React</span>
+			<span class='experience-card-skill'>React</span>
+			<span class='experience-card-skill'>React</span>
+			<span class='experience-card-skill'>React</span>
+		</div>
+	</header>
+	<p class='experience-card-descripcion mx-0' slot='content'>
+		Top-notch software development company renowned for crafting custom digital
+		solutions, specializing in mobile app development, web development, and
+		software engineering
+	</p>
+	<ul class='experience-card-activities' slot='footer'>
+		<li class='experience-card-activity'>
+			Developing responsive user interfaces using Angular framework.
+		</li>
+		<li class='experience-card-activity'>
+			Developing responsive user interfaces using Angular framework.
+		</li>
+		<li class='experience-card-activity'>
+			Implementing front-end features and functionalities based on design
+			specifications.
+		</li>
+		<li class='experience-card-activity'>
+			Collaborating with the backend team to integrate APIs and manage data
+			interactions.
+		</li>
+		<li class='experience-card-activity'>
+			Conducting code reviews and ensuring adherence to coding standards.
+		</li>
+		<li class='experience-card-activity'>
+			Optimizing application performance and addressing cross-browser
+			compatibility issues.
+		</li>
+		<li class='experience-card-activity'>
+			Troubleshooting and debugging frontend issues to deliver a seamless user
+			experience.
+		</li>
+		<li class='experience-card-activity'>
+			Staying updated with the latest Angular developments and best practices.
+		</li>
+		<li class='experience-card-activity'>
+			Participating in agile development processes and contributing to sprint
+			planning.
+		</li>
+		<li class='experience-card-activity'>
+			Testing and ensuring the quality of the application through unit and
+			integration testing.
+		</li>
+	</ul>
+</Card>
+<style lang='scss'>
+	.experience {
+		&-card {
+			&-header {
+				display: grid;
+				gap: 0.5rem;
+				width: 100%;
+			}
+
+			&-title {
+				font-size: 1.5rem;
+				font-weight: 700;
+			}
+
+			&-company {
+				font-weight: 700;
+				color: var(--p-color);
+			}
+
+			&-skills {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.5rem;
+			}
+
+			&-activities {
+				display: grid;
+				gap: 0.5rem;
+				padding-left: 1.25rem;
+				margin: 0;
+				// list-style: none;
+			}
+		}
+	}
+</style>

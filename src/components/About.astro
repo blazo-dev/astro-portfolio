@@ -1,0 +1,29 @@
+---
+import { aboutInfo } from '../data/aboutData'
+---
+
+<div class='about'>
+	<h2 class='about-title mx-0'>
+		{aboutInfo.title}
+	</h2>
+	{
+		aboutInfo.paragraph.map((paragraph) => (
+			<p class='about-paragraph mx-0'>{paragraph}</p>
+		))
+	}
+</div>
+<style lang='scss'>
+	.about {
+		display: grid;
+		gap: 1rem;
+
+		&-title {
+			font-weight: 700;
+			font-size: 1rem;
+			color: var(--p-color);
+		}
+
+		&-paragraph {
+		}
+	}
+</style>

@@ -7,7 +7,7 @@ import { navData as routes } from '../data/navData'
 		<li class='nav-item'>
 			<a
 				class='nav-link'
-				href={`/${path}`}
+				href={`${path}`}
 				aria-label={`Go to the page: ${text}`}
 				data-nav-link
 			>
@@ -16,10 +16,6 @@ import { navData as routes } from '../data/navData'
 		</li>
 	))
 }
-
-<script>
-	import '../lib/nav'
-</script>
 <style lang='scss'>
 	.nav {
 		&-link {
@@ -28,23 +24,18 @@ import { navData as routes } from '../data/navData'
 			text-decoration: none;
 			color: var(--text-color);
 			font-weight: 600;
-			font-size: 1.2em;
+			font-size: 1.2rem;
 
 			border-bottom: var(--border-weight) solid transparent;
-
 			transition: var(--color-transition);
 
 			&:hover {
-				border-bottom: var(--border-weight) solid var(--text-color);
+				color: var(--p-color);
+				border-bottom: var(--border-weight) solid var(--p-color);
 			}
 
 			@media screen and (min-width: 768px) {
 				--border-weight: 3px;
-			}
-
-			&.active {
-				color: var(--p-color);
-				border-bottom: var(--border-weight) solid var(--p-color);
 			}
 		}
 	}

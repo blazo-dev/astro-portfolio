@@ -1,74 +1,43 @@
 ---
+import About from './About.astro'
 import Card from './Card.astro'
 import WritterMachine from './WritterMachine.astro'
-
-const writterText = 'Welcome to my digital world.'
+import { mainContent } from '../data/mainData'
 ---
 
-<main class='main wp-g'>
-	<section class='home'>
-		<article class='presentation'>
+<section class='home sect-g' id='home'>
+	<article class='home-article'>
+		<div class='home-writter'>
 			<Card>
-				<img
-					src='/images/pp.webp'
-					alt=''
-					slot='content'
-					class='presentation-image'
-				/>
-				<div class='presentation-content' slot='content-right'>
-					<h1 class='presentation-title mx-0'>Web Developer</h1>
-					<h3 class='presentation-name mx-0'>Bryan Lazo</h3>
-					<span class='presentation-slogan mx-0'
-						>Coffee, Creativity, and Code.</span
-					>
-				</div>
-			</Card>
-		</article>
-		<article class='welcome'>
-			<Card>
-				<WritterMachine slot='content' width={writterText.length}>
-					{writterText}
+				<WritterMachine slot='content' width={mainContent.writterText.length}>
+					{mainContent.writterText}
 				</WritterMachine>
 			</Card>
-			<Card>
-				<WritterMachine slot='content' width={writterText.length}>
-					{writterText}
-				</WritterMachine>
-			</Card>
-		</article>
-	</section>
-</main>
+		</div>
+		<Card>
+			<img src='/images/pp.webp' alt='' slot='content' class='home-image' />
+			<div class='home-content' slot='content-right'>
+				<h1 class='home-title mx-0'>{mainContent.title}</h1>
+				<h3 class='home-name mx-0'>{mainContent.name}</h3>
+				<span class='home-slogan'>
+					{mainContent.slogan}
+				</span>
+			</div>
+		</Card>
+	</article>
+	<article class='home-article' id='about'>
+		<Card>
+			<About slot='content' />
+		</Card>
+	</article>
+</section>
 <style lang='scss'>
 	.home {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
-		align-items: flex-start;
-		gap: 1rem;
-		grid-column: 2/3;
-
-		@media (min-width: 768px) {
-			grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr));
+		&-article {
+			display: grid;
+			gap: 1rem;
 		}
 
-		@media (min-width: 1024px) {
-			grid-template-columns: repeat(auto-fit, minmax(min(100%, 450px), 1fr));
-		}
-		&-welcome {
-			font-size: 2rem;
-		}
-	}
-
-	.mx-0 {
-		margin-block: 0;
-	}
-
-	.welcome {
-		display: flex;
-		flex-wrap: wrap;
-
-		gap: 1rem;
-	}
-	.presentation {
 		&-image {
 			display: block;
 			width: min(100% - 1rem, 250px);
@@ -80,7 +49,7 @@ const writterText = 'Welcome to my digital world.'
 		}
 
 		&-title {
-			font-size: 0.8rem;
+			font-size: 1rem;
 			font-weight: 300;
 			text-transform: uppercase;
 			letter-spacing: 0.2rem;
@@ -88,16 +57,35 @@ const writterText = 'Welcome to my digital world.'
 		}
 
 		&-name {
-			font-size: 1.7rem;
+			font-size: 2.5rem;
 			font-weight: 700;
 			letter-spacing: 0.2rem;
 			color: var(--s-color);
 		}
 
 		&-slogan {
-			font-size: .8rem;
+			font-size: 1rem;
 			font-weight: 300;
 			color: var(--text-s-color);
+		}
+
+		&-name,
+		&-title,
+		&-slogan {
+			display: block;
+			text-align: center;
+
+			@media screen and (min-width: 768px) {
+				text-align: left;
+			}
+		}
+
+		&-writter {
+			display: grid;
+			font-size: 1rem;
+			@media screen and (min-width: 768px) {
+				font-size: 1.2rem;
+			}
 		}
 	}
 </style>
