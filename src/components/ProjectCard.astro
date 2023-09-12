@@ -1,0 +1,75 @@
+---
+import ButtonIcon from './ButtonIcon.astro'
+import Card from './Card.astro'
+import DeployIcon from './Icons/DeployIcon.astro'
+import GithubIcon from './Icons/GithubIcon.astro'
+---
+
+<Card>
+	<header class='experience-card-header' slot='content'>
+		<img
+			class='experience-card-image'
+			src='/images/countries-app.webp'
+			alt=''
+		/>
+		<h3 class='experience-card-title mx-0'>Rest Countries API</h3>
+		<div class='experience-card-links'>
+			<ButtonIcon href='#' target='_blank' text='Deploy'>
+				<DeployIcon width={20} height={20} slot='icon-before' />
+			</ButtonIcon>
+			<ButtonIcon href='#' target='_blank' text='Repo'>
+				<GithubIcon width={24} height={24} slot='icon-before' />
+			</ButtonIcon>
+		</div>
+		<div class='experience-card-skills'>
+			<span class='experience-card-skill'>React</span>
+			<span class='experience-card-skill'>React</span>
+			<span class='experience-card-skill'>React</span>
+			<span class='experience-card-skill'>React</span>
+			<span class='experience-card-skill'>React</span>
+		</div>
+	</header>
+</Card>
+<style lang='scss'>
+	.experience {
+		&-card {
+			&-header {
+				display: grid;
+				gap: 0.5rem;
+				width: 100%;
+			}
+
+			&-image {
+				display: block;
+				width: 100%;
+				max-height: 280px;
+				object-fit: cover;
+				border-radius: var(--border-radius);
+			}
+
+			&-title {
+				font-size: 1.5rem;
+				font-weight: 700;
+			}
+
+			&-links {
+				--border-radius: 50%;
+				display: flex;
+				gap: 0.5rem;
+				width: 100%;
+
+				font-size: 0.7rem;
+				line-height: 1rem;
+				@media screen and (min-width: 768px) {
+					--border-radius: 1.2rem;
+				}
+			}
+
+			&-skills {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.5rem;
+			}
+		}
+	}
+</style>

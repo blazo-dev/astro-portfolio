@@ -3,9 +3,10 @@ type Props = {
 	href?: string
 	target?: string
 	isButton?: boolean
+	text?: string
 }
 
-const { href, isButton, target } = Astro.props
+const { href, isButton, target, text } = Astro.props
 ---
 
 {
@@ -14,15 +15,14 @@ const { href, isButton, target } = Astro.props
 			<slot name='icon-before' />
 			<span class='button-text'>
 				<slot />
+				<slot name='icon-in' />
 			</span>
 			<slot name='icon-after' />
 		</button>
 	) : (
 		<a class='button' href={href} target={target}>
 			<slot name='icon-before' />
-			<span class='button-text'>
-				<slot />
-			</span>
+			{text && <span class='button-text'>{text}</span>}
 			<slot name='icon-after' />
 		</a>
 	)
@@ -32,10 +32,11 @@ const { href, isButton, target } = Astro.props
 	.button {
 		display: flex;
 		align-items: center;
-		justify-content: space-between;
+		justify-content: center;
 		gap: 0.3em;
 
-		padding: 0.5rem 0.8rem;
+		min-width: 38px;
+		padding: 0.5rem;
 
 		border: transparent;
 		border-radius: var(--border-radius);

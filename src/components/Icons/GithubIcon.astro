@@ -1,4 +1,13 @@
-<svg class='icon' viewBox='0 0 24 24'>
+---
+type Props = {
+	width?: number
+	height?: number
+}
+
+const { height = 32, width = 32 } = Astro.props
+---
+
+<svg class='icon' width={width} height={height} viewBox='0 0 24 24'>
 	<title>github</title>
 	<rect width='24' height='24' fill='none'></rect>
 	<path
@@ -8,9 +17,6 @@
 </svg>
 <style lang='scss'>
 	.icon {
-		width: 32px;
-		height: 32px;
-
 		&-path {
 			fill: currentColor;
 		}
